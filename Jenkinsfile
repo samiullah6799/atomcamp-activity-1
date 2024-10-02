@@ -21,8 +21,13 @@ pipeline {
 
         stage ('Deploy') {
             steps {
-                echo "It is deploying your system"
+                deploy('dev')
             }
         }
     }
+}
+
+
+def void deploy(String branchName) {
+    println(branchName)
 }
