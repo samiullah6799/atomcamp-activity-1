@@ -5,3 +5,5 @@ This is MLOps Class Repository
 # This is the practice repo for atomcamp's class in MLOps Module
 
 # I have Jenkins Job to the repo
+
+# I have created a jenkins pipeline as a code
