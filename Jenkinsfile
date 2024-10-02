@@ -7,19 +7,19 @@ pipeline {
             }
         }
 
-        stages('Installation') {
+        stage ('Installation') {
             steps {
                 echo "It is installing all packages"
             }
         }
 
-        stages('Testing') {
+        stage ('Testing') {
             steps {
                 echo "It is performing automatic testing"
             }
         }
 
-        stages('Deploy') {
+        stage ('Deploy') {
             steps {
                 echo "It is deploying your system"
             }
