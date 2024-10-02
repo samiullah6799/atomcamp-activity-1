@@ -2,7 +2,7 @@ name: Python Application
 on: push
 jobs:
   build:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Clone Repo to Runner
         uses: actions/checkout@v3
