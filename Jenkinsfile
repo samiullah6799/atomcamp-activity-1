@@ -21,14 +21,8 @@ pipeline {
 
         stage ('Deploy') {
             steps {
-                script {
-                    deploy()
-                }
+                echo "Deploying"
             }
         }
     }
-}
-
-def void deploy() {
-    println("Atomcamp Class is underway")
 }
