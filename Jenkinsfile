@@ -1,28 +1,37 @@
 pipeline {
     agent any
     stages {
-        stage ('Build') {
+        stage ('Checkout') {
             steps {
-                echo "Building"
+                checkout scmGit(branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/samiullah6799/atomcamp-activity-1.git/']])
             }
         }
 
-        stage ('Installation') {
+        stage ('Build') {
             steps {
-                echo "Installation"
+               sh 'pip3 install -r requirements.txt'
             }
         }
 
         stage ('Testing') {
             steps {
-                echo "Testing"
+                sh 'python3 test.py'
             }
         }
 
         stage ('Deploy') {
             steps {
-                echo "Deploying"
+                script {
+                    def branchName = '${env.BRANCH_NAME}'
+                    def buildNumber = '${env.BUILD_NUMBER}'
+                    println('BUILD NUMBER : ${buildNumber}')
+                    deploy(branchName)
+                }
             }
         }
     }
+}
+
+def void deploy(String branchName) {
+    println(branchName)
 }
