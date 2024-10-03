@@ -21,12 +21,7 @@ pipeline {
 
         stage ('Deploy') {
             steps {
-                script {
-                    def branchName = '${env.BRANCH_NAME}'
-                    def buildNumber = '${env.BUILD_NUMBER}'
-                    println('BUILD NUMBER : ${buildNumber}')
-                    deploy(branchName)
-                }
+                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
         }
     }
